@@ -1,6 +1,7 @@
 /*PREMIER FORMULAIRE*/
 
 document.getElementById("sexe").value = "";
+//Ici il faut créer une fonction appart
 document.getElementById("premierBoutton").addEventListener("click", function (e) {
   var prenomElement = document.createElement("p");
   prenomElement.textContent = document.getElementById("prenom").value;
@@ -43,6 +44,58 @@ document.getElementById("age").value = "";
 document.getElementById("sexe").value = "";
 });
 
+
+
+/*******************************************************************/
+/*PREMIER FORMULAIRE By Anas*/
+
+document.getElementById("premierBouttonAnas").addEventListener("click",doOnClick)
+
+//Jamais ecrire une fonction Call back directement dans l'evenement
+//Ici doOnClick est un callback donc je le met apart
+
+//Il faut aussi toujours à penser à ecrire du code groupe si tu fait du copier coller
+//C'est que tu peut ecrir une fonction ici createElement est unbon example
+function doOnClick(e){
+    // Cette technique de ecrire un tableau avec tous les ellement permet de boucler sur un tableau
+    // et facilement trouver les bugs mais surtout facilement ajouter un champs dans le fomulaire
+    // Toujours penser à la maintenabilité du Code !!!
+    var formFields =["prenom","nom","age","sexe"]
+    for (var i = 0; i < formFields.length; i++) {
+      createElement(formFields[i]);
+    }
+    var formValid = isFormValid(formFields);
+    if(formValid){
+      // Cette partie n'est pas terrible puisque si j'ajoute un ellement dans formFields ca va pas etre pris en compte
+      // A toi de corriger cette partie
+      document.getElementById("fichePremierFormulaire").innerHTML = '<h2> Votre fiche: </h2><p>Prénom: <span id="fichePrenom"></span></p><p id="ficheNom">Nom: </p><p id="ficheAge">Année de naissance: </p><p id="ficheSexe">Sexe: </p>';
+      document.getElementById("fichePrenom").textContent += document.getElementById("prenom").value ;
+      document.getElementById("ficheNom").textContent += document.getElementById("nom").value ;
+      document.getElementById("ficheAge").textContent += 2017 - document.getElementById("age").value ;
+      document.getElementById("ficheSexe").textContent += document.getElementById("sexe").value ;
+      document.getElementById("fichePremierFormulaire").style = "display: block; border: 2px solid black; padding-left: 10px; margin-top: 5px;";
+    }
+}
+//Create Ellement est une fonction qui créé un ellement a base d'un nom
+function createElement(name){
+  var theElement = document.createElement("p");
+  theElement.textContent = document.getElementById(name).value;
+  return theElement;
+}
+//Cette fonction est plus simple est permet de tester si la form est valid
+function isFormValid(formFields){
+  var isValid = true;
+  for (var i = 0; i < formFields.length; i++) {
+    if(document.getElementById(formFields[i]).value  === ""){
+      document.getElementById(formFields[i] + "Help").textContent = "Veuillez entrer votre " + formFields[i]+ "!";
+    }else{
+      document.getElementById(formFields[i] + "Help").textContent = "";
+    }
+    isValid = isValid && (document.getElementById(formFields[i]).value  != "")
+  }
+  return isValid;
+}
+/*******************************************************************/
 
 /* 2EME FORMULAIRE*/
 
