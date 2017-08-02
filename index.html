@@ -1,10 +1,81 @@
 <!DOCTYPE html>
-<head>
+<html>
+  <head>
+  <meta charset="utf-8" />
+  <title>Formulaires</title>
+  </head>
 
-</head>
-<body>
+  <body>
+    <!--        PREMIER FORMULAIRE  ------->
+<form>
+  <h1>1er Formulaire:</h1>
+  <p>
+      <label for="prenom">Prénom</label> :
+      <input type="text" name="prenom" id="prenom" placeholder="Prénom" autofocus required>
+      <span id="prenomHelp"></span>
+  </p>
+  <p>
+      <label for="nom">Nom</label> :
+      <input type="text" name="nom" id="nom" placeholder="Nom" required>
+      <span id="nomHelp"></span>
+  </p>
+  <p>
+      <label for="age">Âge</label> :
+      <input type="number" min="1" name="age" id="age" placeholder="Âge" required>
+      <span id="ageHelp"></span>
+  </p>
+  <p>
+        <label for="sexe">Sexe :</label>
+        <select name="sexe" id="sexe">
+            <option value="Homme">Homme</option>
+            <option value="Femme">Femme</option>
+        </select>
+        <span id="sexeHelp"></span>
+  </p>
+</form>
+<button id="premierBoutton">Soumettre</button>
+<button id="premierBouttonEffacer">Effacer</button>
+<div id="fichePremierFormulaire" style="display: none;">
+<h2> Votre fiche: </h2>
+<p id="fichePrenom">Prénom: </p>
+<p id="ficheNom">Nom: </p>
+<p id="ficheAge">Année de naissance: </p>
+<p id="ficheSexe">Sexe: </p>
+</div>
+  <hr>
 
-</body>
-<footer>
+<!--       2EME FORMULAIRE     -->
+  <form>
+    <h1>2eme Formulaire:</h2>
+      <p>
+          <label for="palindrome">Palindrome</label> :
+          <input type="text" name="palindrome" id="palindrome" placeholder="Entrez votre texte" required>
+          <span id="palindromeHelp"></span>
+      </p>
+  </form>
+  <button id="palindromeBoutton">Soumettre</button>
+  <button id="palindromeBouttonEffacer">Effacer</button>
+  <div id="ficheDeuxiemeFormulaire" style="display: none;">
+  <h2> Résultat: </h2>
+  <p id="fichePalindrome">Votre texte: </p>
+  </div>
+    <hr>
 
-</footer>
+<!--       2EME FORMULAIRE     -->
+<label for="somme1">Nombre: </label><input type="number" name="somme1" id="somme1" placeholder="Nombre" required>
+<button id="plus1" style="display: default;">+</button>
+<span id="somme1Help"></span>
+
+<div id=autresNombres></div>
+
+<button style="display: default; margin-top: 5px; margin-bottom: 5px; width: 200px; height: 40px;">Calculer la somme</button>
+
+<div id="ficheSomme" style="display: none; border: 2px solid black; padding-left: 10px; margin-top: 5px;">
+<h2> Résultat: </h2>
+<p id="sommeCalculee" style="font-family: georgia;">La somme = </p>
+</div>
+
+  <script src="main.js"></script>
+  </body>
+
+</html>
