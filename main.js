@@ -1,5 +1,5 @@
 /*PREMIER FORMULAIRE*/
-
+/*
 document.getElementById("sexe").value = "";
 //Ici il faut créer une fonction appart
 document.getElementById("premierBoutton").addEventListener("click", function (e) {
@@ -44,11 +44,61 @@ document.getElementById("age").value = "";
 document.getElementById("sexe").value = "";
 });
 
+*/
+//**************************************************************/
+/*PREMIER FORMULAIRE By SAID*/
+document.getElementById("soumettreBoutton").addEventListener("click", soumettreFunction);
+document.getElementById("effacerBoutton").addEventListener("click", effacerFunction);
+
+var donneesArray = ["prenom", "nom", "age", "sexe"];
+var donneesArrayElement = [];
+for (var i =0; i < donneesArray.length; i++ ) {
+  donneesArrayElement[i] = document.createElement("p");
+  }
+
+function soumettreFunction () {
+	var valididy = isValid();
+    if(valididy){
+		for (var i =0; i < donneesArray.length; i++ ) {
+		if (document.getElementById(donneesArray[i]) === age) {
+			var birthYear = 2017 - document.getElementById(donneesArray[i]).value;
+     donneesArrayElement[i].textContent = donneesArray[i].toUpperCase() +": " + birthYear;
+     document.getElementById("fichePremierFormulaire").appendChild(donneesArrayElement[i]);
+		} else {
+     donneesArrayElement[i].textContent = donneesArray[i].toUpperCase() +": " + document.getElementById(donneesArray[i]).value;
+     document.getElementById("fichePremierFormulaire").appendChild(donneesArrayElement[i]);
+        }
+    }
+}
+}
+
+function effacerFunction () {
+		for (var i =0; i < donneesArray.length; i++ ) {
+	document.getElementById(donneesArray[i]).value = "";
+	donneesArrayElement[i].textContent = "";
+    document.getElementById("fichePremierFormulaire").appendChild(donneesArrayElement[i]);
+    document.getElementById(donneesArray[i]+"Help").textContent = "";
+	}
+}
+
+function isValid () {
+	var testValidity = true;
+	for (var i =0; i < donneesArray.length; i++ ) {
+		if (document.getElementById(donneesArray[i]).value === "") {
+			document.getElementById(donneesArray[i]+"Help").textContent = "Veuillez entrer votre " + donneesArray[i].toUpperCase() + "!";
+		} else {
+		document.getElementById(donneesArray[i]+"Help").textContent = "";
+		}
+	testValidity = testValidity && (document.getElementById(donneesArray[i]).value !== "");
+	}
+	return testValidity;
+}
+
 
 
 /*******************************************************************/
 /*PREMIER FORMULAIRE By Anas*/
-
+/*
 document.getElementById("premierBouttonAnas").addEventListener("click",doOnClick)
 
 //Jamais ecrire une fonction Call back directement dans l'evenement
@@ -95,10 +145,11 @@ function isFormValid(formFields){
   }
   return isValid;
 }
+*/
 /*******************************************************************/
 
 /* 2EME FORMULAIRE*/
-
+/*
 document.getElementById("palindromeBoutton").addEventListener("click", function (e) {
   var palindromeElement = document.createElement("p");
   palindromeElement.textContent = document.getElementById("palindrome").value;
@@ -132,9 +183,10 @@ document.getElementById("palindromeBouttonEffacer").addEventListener("click", fu
 document.getElementById("ficheDeuxiemeFormulaire").innerHTML = '<h2>Résultat: </h2><br />';
 document.getElementById("palindrome").value = "";
 });
-
+*/
 
 /* 3EME FORMULAIRE*/
+/*
 var buttonObject = {
   textHTML: '<label for="somme1">Nombre: </label><input type="number" name="somme1" id="somme1" placeholder="Nombre" required> <button id="plus1" style="display: default;">+</button> <span id="somme1Help"></span>',
 
@@ -153,3 +205,4 @@ console.log("plus"+numberTestClick+"test");
 
 });
 }
+*/
