@@ -1,79 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
   <meta charset="utf-8" />
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
   <title>Formulaires</title>
-  </head>
+  <link rel="stylesheet" href="mycss.css" />
+</head>
 
-  <body>
-    <!--        PREMIER FORMULAIRE -->
-<form>
-  <h1>1er Formulaire:</h1>
-  <p>
-      <label for="prenom">Prénom</label> :
-      <input type="text" name="prenom" id="prenom" placeholder="Prénom" autofocus required>
-      <span id="prenomHelp"></span>
-  </p>
-  <p>
-      <label for="nom">Nom</label> :
-      <input type="text" name="nom" id="nom" placeholder="Nom" required>
-      <span id="nomHelp"></span>
-  </p>
-  <p>
-      <label for="age">Âge</label> :
-      <input type="number" min="1" name="age" id="age" placeholder="Âge" required>
-      <span id="ageHelp"></span>
-  </p>
-  <p>
-        <label for="sexe">Sexe :</label>
-        <select name="sexe" id="sexe">
-            <option value="Homme">Homme</option>
-            <option value="Femme">Femme</option>
-        </select>
-        <span id="sexeHelp"></span>
-  </p>
-</form>
-<!--<button id="premierBoutton">Soumettre</button>-->
-<button id="soumettreBoutton">Soumettre données</button>
-<button id="effacerBoutton">Effacer</button>
-<div id="fichePremierFormulaire">
-<!--<h2> Votre fiche: </h2>-->
+<body>
 
-</div>
-  <hr>
-<script src="main.js"></script>
-  </body>
+  <div class="container">
+    <header class="row">
+      <div class="page-header">
+        <h1>Formulaires: jQuery et Bootstrap</h1>
+      </div>
+    </header>
+    <div class="row">
+      <div class="row col-lg-12">
+        <!--        PREMIER FORMULAIRE -->
+        <div class="col-lg-6">
+          <div id="formu1">
+            <form>
+              <h2>1er Formulaire:</h2>
+              <p>
+                <label for="prenom">Prénom</label> :
+                <input type="text" name="prenom" id="prenom" class="input form-control" placeholder="Prénom" autofocus required>
+                <span id="prenomHelp"></span>
+              </p>
+              <p>
+                <label for="nom">Nom</label> :
+                <input type="text" name="nom" id="nom" class="input form-control" placeholder="Nom" required>
+                <span id="nomHelp"></span>
+              </p>
+              <p>
+                <label for="age">Âge</label> :
+                <input type="number" min="1" name="age" id="age" class="input form-control" placeholder="Âge" required>
+                <span id="ageHelp"></span>
+              </p>
+              <p>
+                <label for="sexe">Sexe :</label>
+                <select name="sexe" id="sexe" class="input form-control">
+                  <option value="Homme">Homme</option>
+                  <option value="Femme">Femme</option>
+              </select>
+                <span id="sexeHelp"></span>
+              </p>
+            </form>
 
-<!--       2EME FORMULAIRE
-  <form>
-    <h1>2eme Formulaire:</h2>
-      <p>
-          <label for="palindrome">Palindrome</label> :
-          <input type="text" name="palindrome" id="palindrome" placeholder="Entrez votre texte" required>
-          <span id="palindromeHelp"></span>
-      </p>
-  </form>
-  <button id="palindromeBoutton">Soumettre</button>
-  <button id="palindromeBouttonEffacer">Effacer</button>
-  <div id="ficheDeuxiemeFormulaire" style="display: none;">
-  <h2> Résultat: </h2>
-  <p id="fichePalindrome">Votre texte: </p>
-  </div>
-    <hr>
+
+              <div class="btn-group">
+                <button type="button" id="soumettreBoutton" class=" btn btn-success  "><span class="glyphicon glyphicon-ok-sign"></span> Soumettre</button>
+                <button type="button" id="effacerBoutton" class=" btn btn-warning "><span class="glyphicon glyphicon-erase"></span></span> Effacer</button>
+              </div>
+
+
+            <div id="fichePremierFormulaire">
+            </div>
+            <hr>
+          </div>
+
+
+          <!--    2EME FORMULAIRE -->
+          <div id="formu2">
+            <form>
+              <h2>2eme Formulaire:</h2>
+              <p>
+                <label for="palindrome">Palindrome</label> :
+                <input type="text" name="palindrome" class="input form-control" id="palindrome" placeholder="Entrez votre texte" required>
+                <span id="palindromeHelp"></span>
+              </p>
+            </form>
+
+            <div class="btn-group ">
+              <button type="button" id="palindromeBoutton" type="button" class="btn btn-success btn-group"><span class="glyphicon glyphicon-ok-sign"></span> Soumettre</button>
+              <button type="button" id="palindromeBouttonEffacer" type="button" class="btn btn-warning btn-group"><span class="glyphicon glyphicon-erase"></span></span> Effacer</button>
+            </div>
+
+            <div id="ficheDeuxiemeFormulaire" style="display: none;">
+              <h2> Résultat: </h2>
+              <p id="fichePalindrome">Votre texte: </p>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+        <!--       3EME FORMULAIRE -->
+        <div class="row col-lg-6">
+          <div id="formu3">
+            <h2>3eme Formulaire:</h2>
+            <form id=form1>
+              <div class="btn-group ">
+                <button type="button" id="plus1" name="plus" class="btn btn-success btn-group"><span class="glyphicon glyphicon-plus-sign"></span> Ajouter</button>
+                <button type="button" id="moins1" class="btn btn-warning btn-group"><span class="glyphicon glyphicon-minus-sign"></span> Effacer</button>
+              </div>
+              <br/>
+              <label for="somme1">Nombre:  1</label>
+              <input type="number" name="somme1" class="input form-control" id="somme1" placeholder="Nombre" required>
+            </form>
+
+            <div id=autresNombres></div>
+
+            <button id="calculerSomme" style=" margin-top: 5px;" class="btn btn-info btn-block">Calculer la somme</button>
+            <div id="ficheSomme" style="display: none; border: 2px solid black; padding-left: 10px; margin-top: 5px;">
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--       script -->
+    <script src="jquery-3.2.1.js"></script>
+    <script src="main.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.3.js"   integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc="   crossorigin="anonymous"></script>
 -->
-<!--       2EME FORMULAIRE
-<label for="somme1">Nombre: </label><input type="number" name="somme1" id="somme1" placeholder="Nombre" required>
-<button id="plus1" style="display: default;">+</button>
-<span id="somme1Help"></span>
 
-<div id=autresNombres></div>
-
-<button style="display: default; margin-top: 5px; margin-bottom: 5px; width: 200px; height: 40px;">Calculer la somme</button>
-
-<div id="ficheSomme" style="display: none; border: 2px solid black; padding-left: 10px; margin-top: 5px;">
-<h2> Résultat: </h2>
-<p id="sommeCalculee" style="font-family: georgia;">La somme = </p>
-</div>
--->
+</body>
 
 </html>
