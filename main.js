@@ -1,5 +1,28 @@
 /*PREMIER FORMULAIRE By SAID*/
 
+var data = [{
+    "input": "prenom",
+    "label": "Prénom",
+    "helpLabel": "Prénom"
+  },
+  {
+    "input": "nom",
+    "label": "Nom",
+    "helpLabel": "Nom"
+  },
+  {
+    "input": "age",
+    "label": "Année de naissance",
+    "helpLabel": "Âge"
+  },
+  {
+    "input": "sexe",
+    "label": "Sexe",
+    "helpLabel": "Sexe"
+  }
+
+]
+
 $('#soumettreBoutton').click(function() {
   soumettreFunction();
 });
@@ -7,11 +30,16 @@ $('#effacerBoutton').click(function() {
   effacerFunction();
 });
 
-var donneesArray = ["prenom", "nom", "age", "sexe"];
+var donneesArrayElement = [];
+for (var i = 0; i < data.length; i++) {
+  donneesArrayElement[i] = document.createElement("p");
+}
+
+/*var donneesArray = ["prenom", "nom", "age", "sexe"];
 var donneesArrayElement = [];
 for (var i = 0; i < donneesArray.length; i++) {
   donneesArrayElement[i] = document.createElement("p");
-}
+}*/
 
 function soumettreFunction() {
   $('#fichePremierFormulaire').attr("class", "jumbotron");
@@ -23,12 +51,12 @@ function soumettreFunction() {
 
   var valididy = isValid();
   if (valididy) {
-    for (var i = 0; i < donneesArray.length; i++) {
-      if (document.getElementById(donneesArray[i]) === age) {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].input === "age") {
         var birthYear = 2017 - $('.input:eq(' + i + ')').val();
-        donneesArrayElement[i].textContent = "ANNEE DE NAISSANCE: " + birthYear;
+        donneesArrayElement[i].textContent = data[i].label + ": " + birthYear;
       } else {
-        donneesArrayElement[i].textContent = donneesArray[i].toUpperCase() + ": " + $('.input:eq(' + i + ')').val();
+        donneesArrayElement[i].textContent = data[i].label + ": " + $('.input:eq(' + i + ')').val();
       }
       $('#fichePremierFormulaire').append(donneesArrayElement[i]);
     }
@@ -37,19 +65,19 @@ function soumettreFunction() {
 
 function effacerFunction() {
   $('#fichePremierFormulaire').html('');
-  for (var i = 0; i < donneesArray.length - 1; i++) {
+  for (var i = 0; i < data.length - 1; i++) {
     $('.input:eq(' + i + ')').val('');
-    $('#' + donneesArray[i] + 'Help').text("");
+    $('#' + data[i].input + 'Help').text("");
   }
 }
 
 function isValid() {
   var testValidity = true;
-  for (var i = 0; i < donneesArray.length; i++) {
+  for (var i = 0; i < data.length; i++) {
     if (($('.input:eq(' + i + ')').val() == '') || ($('.input:eq(' + i + ')').text() == null)) {
-      $('#' + donneesArray[i] + 'Help').text("Veuillez entrer votre " + donneesArray[i].toUpperCase() + "!");
+      $('#' + data[i].input + 'Help').text("Veuillez entrer votre " + data[i].helpLabel + "!");
     } else {
-      $('#' + donneesArray[i] + 'Help').text("");
+      $('#' + data[i].input + 'Help').text("");
     }
     testValidity = testValidity && ($('.input:eq(' + i + ')').val() != "") && ($('.input:eq(' + i + ')').text() !== null);
   }

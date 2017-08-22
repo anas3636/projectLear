@@ -1,0 +1,19 @@
+[
+       {
+        "input": "prenom",
+        "label": "Prénom",
+       },
+       {
+        "input": "nom",
+        "label": "Nom",
+       },
+       {
+        "input": "age",
+        "label": "Âge",
+       },
+       {
+        "input": "sexe",
+        "label": "Sexe",
+       }
+
+     ]
